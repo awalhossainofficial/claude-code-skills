@@ -1,0 +1,13 @@
+{
+  "name": "frontier-orchestrator",
+  "displayName": "Frontier Orchestrator",
+  "version": "0.1.0",
+  "description": "Makes Fable or Opus act as the lead and hand searching, reading, checks and routine edits to cheaper Sonnet helpers, then verify their work.",
+  "author": {
+    "name": "Awal Hossain",
+    "url": "https://github.com/awalhossainofficial"
+  },
+  "repository": "https://github.com/awalhossainofficial/frontier-orchestrator",
+  "license": "MIT",
+  "keywords": ["subagents", "cost", "orchestration", "sonnet", "fable", "opus"]
+}

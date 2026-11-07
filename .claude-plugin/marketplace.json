@@ -1,0 +1,14 @@
+{
+  "name": "frontier-orchestrator",
+  "owner": {
+    "name": "Awal Hossain",
+    "url": "https://github.com/awalhossainofficial"
+  },
+  "plugins": [
+    {
+      "name": "frontier-orchestrator",
+      "source": "./plugins/frontier-orchestrator",
+      "description": "Makes Fable or Opus act as the lead and hand searching, reading, checks and routine edits to cheaper Sonnet helpers, then verify their work."
+    }
+  ]
+}
