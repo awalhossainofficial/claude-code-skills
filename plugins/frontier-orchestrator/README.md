@@ -3,13 +3,13 @@
 # Frontier Orchestrator
 
 **Your expensive model leads. Cheaper Sonnet helpers do the reading.**<br>
-Same answers from Claude Code, for about half the bill.
+About a third cheaper on Fable when there's a lot of code to read. Honest results below, including where it doesn't help.
 
 ![MIT license](https://img.shields.io/badge/license-MIT-blue)
 ![Claude Code 2.1.251+](https://img.shields.io/badge/Claude%20Code-2.1.251%2B-orange)
-![Tested on Fable 5.1](https://img.shields.io/badge/tested%20on-Fable%205.1-a371f7)
+![Tested on Fable 5.1 and Opus 5.5](https://img.shields.io/badge/tested%20on-Fable%205.1%20%7C%20Opus%205.5-a371f7)
 
-<img src="assets/hero.png" alt="Same prompt run twice on Fable 5.1: $1.86 without the plugin, $0.93 with it" width="900">
+<img src="assets/hero.png" alt="Finding code: Fable $1.72 to $1.12, Opus $0.70 to $0.64. Fixing a small bug: Fable $1.30 to $1.41, Opus $0.37 to $0.36." width="900">
 
 </div>
 
@@ -44,20 +44,27 @@ The expensive model still plans, makes the decisions and reviews every result. I
 
 ## Proof
 
-Each test ran the same prompt on the same private TypeScript app, with Fable 5.1 as the main model. The prompts never mentioned helpers. The costs are what Claude Code itself reports, at Claude API list prices.
+Each test ran the same prompt on the same private TypeScript app, with and without the plugin. The prompts never mentioned helpers. The costs are what Claude Code itself reports, at Claude API list prices.
 
-- **"Find every place this app calls an AI API"**
-  - Without the plugin: **$1.86**. Fable did all the reading itself.
-  - With the plugin: **$0.93**. Fable sent one Sonnet scout on its own.
-  - Both answers named 16 of the same files, and the plugin run found 3 more.
-- **Codebase error-handling audit** (earlier version of the rules)
-  - Without: **$5.02** in 4 min 34 s.
-  - With: **$3.06** in 51 s, with comparable findings.
-- **An honest miss.** The plugin's first draft used softer wording, and Fable ignored it: $1.95, no helpers. That's why the current rules start with one firm rule: send a scout first.
+**Finding code** (*"Find every place this app calls an AI API"*)
+- **Fable 5.1:** $1.72 → **$1.12, 35% cheaper**, averaged over 3 runs each. Single runs ranged from 10% to 50% cheaper. In the first pair, both answers named 16 of the same files, and the plugin run found 3 more.
+- **Opus 5.5:** $0.70 → **$0.64, 9% cheaper**, one run each.
 
-The raw cost figures for every run are in [`proof/runs.json`](../../proof/runs.json).
+**Fixing a small bug** (*"The app crashes when the database restarts"*, fixed correctly every time)
+- **Fable 5.1:** $1.30 → **$1.41, 8% more expensive**, one run each. The fix touched one file, so sending a helper cost more than it saved.
+- **Opus 5.5:** $0.37 → **$0.36, about the same**, one run each.
 
-**How measured:** each run was a fresh `claude -p` session on Claude Code 2.1.319. The other rules on the machine were switched off, so only the plugin differed. These are single runs, so treat the numbers as examples, not guarantees.
+**Reviewing code for bugs** (an error-handling audit, with an earlier version of the rules on Fable)
+- $5.02 → **$3.06, 39% cheaper**, and done in 51 seconds instead of 4.5 minutes, with comparable findings.
+
+**What this means**
+- **The bigger the reading job, the bigger the saving.** Exploring a codebase, audits and large features save the most. Small, targeted fixes don't.
+- **Fable saves far more than Opus.** Fable costs about 5 times as much as Sonnet, so every file Sonnet reads instead saves a lot. Opus costs only about twice as much as Sonnet.
+- **An honest miss along the way.** The plugin's first draft used softer wording, and Fable ignored it ($1.95, no helpers). That's why the rules now start with one firm rule: send a scout first.
+
+The cost figures for all 15 runs are in [`proof/runs.json`](../../proof/runs.json).
+
+**How measured:** each run was a fresh `claude -p` session on Claude Code 2.1.319, capped at $3. Other rules on the machine were switched off and helpers used Claude Code's defaults, so only the plugin differed. Bug fixes ran in throwaway copies of the code. Most results are single runs, so treat them as examples, not guarantees.
 
 ## Optional: lock every helper onto Sonnet
 
@@ -71,11 +78,11 @@ A plugin can't change your settings, so these two steps are manual. They make he
 
 ## Good to know
 
-- **Savings depend on the work.** Reading-heavy jobs save the most. For a tiny one-file fix, the rules tell the model to skip helpers.
+- **Savings depend on the work.** Reading-heavy jobs save the most. Small one-file fixes can cost slightly more.
 - **Cheaper in dollars, not always in tokens.** A run with helpers can use more tokens in total, because most of them are Sonnet tokens at about a fifth of the price.
 - **Other providers differ.** On Amazon Bedrock, Google Cloud or Microsoft Foundry, Claude Code's defaults differ, and so will your savings.
 - **Company settings win.** Organization-managed settings and model allowlists override this plugin.
-- **Tested so far on one machine** with Fable 5.1. Results from Opus or other setups are welcome as issues.
+- **Tested so far on one machine,** with Fable 5.1 and Opus 5.5. Results from other setups are welcome as issues.
 
 ## How it works
 

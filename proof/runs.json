@@ -1,5 +1,5 @@
 {
-  "note": "Cost figures only, at Claude API list prices, from Claude Code v2.1.319 on one machine. Audit runs: claude -p JSON output. Other runs: computed from Claude Code's session logs, a method that matches Claude Code's own reported cost to the cent. Answers and code details are left out because the test app is private.",
+  "note": "Cost figures only, at Claude API list prices, from Claude Code v2.1.319 on one machine. Audit runs: claude -p JSON output. Other runs: computed from Claude Code's session logs, a method that matches Claude Code's own reported cost to the cent. Answers and code details are left out because the test app is private. Bug fixes ran in throwaway copies of the code, and 'bug_fixed' checks the fix was actually written.",
   "runs": [
     {
       "task": "Codebase error-handling audit",
@@ -66,6 +66,144 @@
       "cost_by_model_usd": {
         "fable-5-1": 0.8208,
         "sonnet-5-5": 0.1063
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "without",
+      "setup": "Plain Fable",
+      "date": "2026-11-08",
+      "main_model": "fable-5-1",
+      "run": 2,
+      "total_cost_usd": 1.7875,
+      "duration_seconds": 95,
+      "cost_by_model_usd": {
+        "fable-5-1": 1.7875
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "with",
+      "setup": "Plugin v0.1 (current rules)",
+      "date": "2026-11-08",
+      "main_model": "fable-5-1",
+      "run": 2,
+      "total_cost_usd": 1.6101,
+      "duration_seconds": 84,
+      "cost_by_model_usd": {
+        "fable-5-1": 1.504,
+        "sonnet-5-5": 0.1061
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "without",
+      "setup": "Plain Fable",
+      "date": "2026-11-08",
+      "main_model": "fable-5-1",
+      "run": 3,
+      "total_cost_usd": 1.5031,
+      "duration_seconds": 99,
+      "cost_by_model_usd": {
+        "fable-5-1": 1.5031
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "with",
+      "setup": "Plugin v0.1 (current rules)",
+      "date": "2026-11-08",
+      "main_model": "fable-5-1",
+      "run": 3,
+      "total_cost_usd": 0.8198,
+      "duration_seconds": 62,
+      "cost_by_model_usd": {
+        "fable-5-1": 0.7275,
+        "sonnet-5-5": 0.0923
+      }
+    },
+    {
+      "task": "Fix a small bug: app crashes when the database restarts",
+      "side": "without",
+      "setup": "Plain Opus",
+      "date": "2026-11-08",
+      "main_model": "opus-5-5",
+      "run": 1,
+      "bug_fixed": "yes",
+      "total_cost_usd": 0.3668,
+      "duration_seconds": 24,
+      "cost_by_model_usd": {
+        "opus-5-5": 0.3668
+      }
+    },
+    {
+      "task": "Fix a small bug: app crashes when the database restarts",
+      "side": "with",
+      "setup": "Plugin v0.1 (current rules)",
+      "date": "2026-11-08",
+      "main_model": "opus-5-5",
+      "run": 1,
+      "bug_fixed": "yes",
+      "total_cost_usd": 0.3608,
+      "duration_seconds": 26,
+      "cost_by_model_usd": {
+        "opus-5-5": 0.3608
+      }
+    },
+    {
+      "task": "Fix a small bug: app crashes when the database restarts",
+      "side": "without",
+      "setup": "Plain Fable",
+      "date": "2026-11-08",
+      "main_model": "fable-5-1",
+      "run": 1,
+      "bug_fixed": "yes",
+      "total_cost_usd": 1.3022,
+      "duration_seconds": 27,
+      "cost_by_model_usd": {
+        "fable-5-1": 1.3022
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "without",
+      "setup": "Plain Opus",
+      "date": "2026-11-08",
+      "main_model": "opus-5-5",
+      "run": 1,
+      "total_cost_usd": 0.6995,
+      "duration_seconds": 46,
+      "cost_by_model_usd": {
+        "opus-5-5": 0.6995
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "with",
+      "setup": "Plugin v0.1 (current rules)",
+      "date": "2026-11-08",
+      "main_model": "opus-5-5",
+      "run": 1,
+      "total_cost_usd": 0.6377,
+      "duration_seconds": 49,
+      "cost_by_model_usd": {
+        "opus-5-5": 0.5412,
+        "sonnet-5-5": 0.0965
+      }
+    },
+    {
+      "task": "Fix a small bug: app crashes when the database restarts",
+      "side": "with",
+      "setup": "Plugin v0.1 (current rules)",
+      "date": "2026-11-08",
+      "main_model": "fable-5-1",
+      "run": 1,
+      "bug_fixed": "yes",
+      "total_cost_usd": 1.4114,
+      "duration_seconds": 48,
+      "cost_by_model_usd": {
+        "fable-5-1": 1.353,
+        "sonnet-5-5": 0.0584
       }
     }
   ]
