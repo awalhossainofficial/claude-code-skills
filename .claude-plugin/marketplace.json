@@ -1,5 +1,6 @@
 {
-  "name": "frontier-orchestrator",
+  "name": "awal-skills",
+  "description": "Awal Hossain's Claude Code plugins and skills, each with proof of what it does.",
   "owner": {
     "name": "Awal Hossain",
     "url": "https://github.com/awalhossainofficial"
@@ -8,7 +9,8 @@
     {
       "name": "frontier-orchestrator",
       "source": "./plugins/frontier-orchestrator",
-      "description": "Makes Fable or Opus act as the lead and hand searching, reading, checks and routine edits to cheaper Sonnet helpers, then verify their work."
+      "description": "Makes Fable or Opus act as the lead and hand searching, reading, checks and routine edits to cheaper Sonnet helpers, then verify their work.",
+      "category": "productivity"
     }
   ]
 }

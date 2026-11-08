@@ -1,0 +1,72 @@
+{
+  "note": "Cost figures only, at Claude API list prices, from Claude Code v2.1.319 on one machine. Audit runs: claude -p JSON output. Other runs: computed from Claude Code's session logs, a method that matches Claude Code's own reported cost to the cent. Answers and code details are left out because the test app is private.",
+  "runs": [
+    {
+      "task": "Codebase error-handling audit",
+      "side": "without",
+      "setup": "Plain Fable",
+      "date": "2026-11-03",
+      "main_model": "fable-5-1",
+      "helpers": "none",
+      "total_cost_usd": 5.0185,
+      "duration_seconds": 274,
+      "cost_by_model_usd": {
+        "fable-5-1": 5.0185
+      }
+    },
+    {
+      "task": "Codebase error-handling audit",
+      "side": "with",
+      "setup": "Earlier version of the rules (CLAUDE.md)",
+      "date": "2026-11-03",
+      "main_model": "fable-5-1",
+      "helpers": "3 Sonnet helpers",
+      "total_cost_usd": 3.0576,
+      "duration_seconds": 51,
+      "cost_by_model_usd": {
+        "fable-5-1": 2.1076,
+        "sonnet-5-5": 0.95
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "without",
+      "setup": "Plain Fable",
+      "date": "2026-11-07",
+      "main_model": "fable-5-1",
+      "helpers": "none",
+      "total_cost_usd": 1.865,
+      "duration_seconds": 80,
+      "cost_by_model_usd": {
+        "fable-5-1": 1.865
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "with",
+      "setup": "Plugin first draft (soft rules)",
+      "date": "2026-11-07",
+      "main_model": "fable-5-1",
+      "helpers": "none: Fable ignored the soft rules",
+      "total_cost_usd": 1.9542,
+      "duration_seconds": 72,
+      "cost_by_model_usd": {
+        "fable-5-1": 1.9542
+      }
+    },
+    {
+      "task": "Find every place this app calls an AI API",
+      "side": "with",
+      "setup": "Plugin v0.1 (current rules)",
+      "date": "2026-11-07",
+      "main_model": "fable-5-1",
+      "helpers": "1 Sonnet scout, sent automatically",
+      "total_cost_usd": 0.927,
+      "duration_seconds": 75,
+      "cost_by_model_usd": {
+        "fable-5-1": 0.8208,
+        "sonnet-5-5": 0.1063
+      }
+    }
+  ]
+}

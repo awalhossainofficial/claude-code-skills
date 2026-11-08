@@ -7,7 +7,15 @@
     "name": "Awal Hossain",
     "url": "https://github.com/awalhossainofficial"
   },
-  "repository": "https://github.com/awalhossainofficial/frontier-orchestrator",
+  "repository": "https://github.com/awalhossainofficial/claude-code-skills",
   "license": "MIT",
-  "keywords": ["subagents", "cost", "orchestration", "sonnet", "fable", "opus"]
+  "keywords": [
+    "subagents",
+    "cost",
+    "orchestration",
+    "sonnet",
+    "fable",
+    "opus"
+  ],
+  "homepage": "https://github.com/awalhossainofficial/claude-code-skills/tree/main/plugins/frontier-orchestrator"
 }
