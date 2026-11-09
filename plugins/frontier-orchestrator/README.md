@@ -15,14 +15,24 @@ About a third cheaper on Fable when there's a lot of code to read. Honest result
 
 ## Install
 
-In Claude Code, run:
+**Easiest: paste this one line into your terminal** (needs Claude Code 2.1.292 or later; check with `claude --version`):
+
+```bash
+claude plugin install frontier-orchestrator --marketplace awalhossainofficial/claude-code-skills
+```
+
+Then start a new Claude Code session. Done.
+
+**Or from inside Claude Code:** paste these two lines into the chat box, one at a time:
 
 ```
 /plugin marketplace add awalhossainofficial/claude-code-skills
 /plugin install frontier-orchestrator@awal-skills
 ```
 
-Then start a new session. That's it: no commands to remember. The plugin works on its own in every project.
+The second line opens a details panel. Pick **Install for you (user scope)** so it works in every project, then start a new session.
+
+**Is it on everywhere?** Yes. Once installed, every new Claude Code session on your computer loads it by itself, in every project: the terminal, the desktop app and VS Code. You never have to turn it on or type a command. (Cloud sessions on claude.ai/code don't load plugins from your computer.)
 
 **Check it's working:** ask something that needs a search, such as *"where does this app handle logins?"*. You'll see Claude start `frontier-orchestrator:scout` with **Sonnet 5.5** next to it, instead of reading the files itself.
 
@@ -90,10 +100,18 @@ A plugin can't change your settings, so these two steps are manual. They make he
 - `agents/*.md` define the helpers. The `model:` line in each one is what Claude Code uses when the lead doesn't name a model.
 - `skills/orchestrate/SKILL.md` is the long playbook for big jobs.
 
+## Update
+
+Updates don't install by themselves. To get the latest version, run this in your terminal:
+
+```bash
+claude plugin update frontier-orchestrator@awal-skills
+```
+
 ## Uninstall
 
-```
-/plugin uninstall frontier-orchestrator@awal-skills
+```bash
+claude plugin uninstall frontier-orchestrator@awal-skills
 ```
 
 If you did the optional steps, also remove the `env` line and `~/.claude/agents/Explore.md`.

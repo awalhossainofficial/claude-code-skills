@@ -13,13 +13,15 @@ Plugins and skills I use every day in Claude Code, shared with proof of what the
 
 ## Install
 
-Add the collection once:
+Paste one line into your terminal for the skill you want (Claude Code 2.1.292 or later):
 
-```
-/plugin marketplace add awalhossainofficial/claude-code-skills
+```bash
+claude plugin install frontier-orchestrator --marketplace awalhossainofficial/claude-code-skills
 ```
 
-Then install whichever skills you want, and start a new session.
+Then start a new Claude Code session. It's on for you in every project from then on, with nothing to turn on.
+
+Prefer doing it inside Claude Code? Paste `/plugin marketplace add awalhossainofficial/claude-code-skills` into the chat box, then the install line from the table below, and pick **Install for you (user scope)**.
 
 ## Skills
 
